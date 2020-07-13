@@ -1,4 +1,5 @@
-# Write your code below game_hash
+require 'pry'
+
 def game_hash
   {
     home: {
@@ -126,4 +127,101 @@ def game_hash
   }
 end
 
-# Write code here
+
+def num_points_scored(player)
+  points = 0
+  game_hash.each do |title, information|
+    information[:players].each do |players|
+      players.each do |key, value|
+        if value == player
+          points = players[:points]
+        end
+      end
+    end
+  end
+  points
+end
+
+
+def shoe_size(player)
+  shoe_size = 0
+  game_hash.each do |title, information|
+    information[:players].each do |players|
+      players.each do |key, value|
+        if value == player
+          shoe_size = players[:shoe]
+        end
+      end
+    end
+  end
+  shoe_size
+end
+
+def team_colors(team)
+  team_colors = ""
+  game_hash.each do |title, information|
+    if information[:team_name] == team
+      team_colors = information[:colors]
+    end
+  end
+  team_colors
+end
+
+def team_names
+  team_names = []
+  game_hash.each do |title, information|
+    information.each do |key, value|
+      if key == :team_name
+        team_names.push(value)
+      end
+    end
+  end
+  team_names
+end
+
+def player_numbers(team)
+  numbers_array = []
+  game_hash.each do |title, information|
+    if information[:team_name] == team
+      information[:players].each do |players|
+        players.each do |key, value|
+          if key == :number
+            numbers_array.push(value)
+          end
+        end
+      end
+    end
+  end
+  numbers_array
+end
+
+def player_stats(name)
+  stats = {}
+  game_hash.each do |title, information|
+    information[:players].each do |value|
+      if value[:player_name] == name
+        stats = value
+      end
+    end
+  end
+  stats
+end
+
+
+def big_shoe_rebounds
+  rebounds = 0
+  biggest_shoe_size = 0
+  game_hash.each do |title, information|
+    information[:players].each do |stats|
+      stats.each do |key, value|
+        if key == :shoe
+          if stats[:shoe] > biggest_shoe_size
+            biggest_shoe_size = stats[:shoe]
+            rebounds = stats[:rebounds]
+          end
+        end
+      end
+    end
+  end
+  rebounds
+end
