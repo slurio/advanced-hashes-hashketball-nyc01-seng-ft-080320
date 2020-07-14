@@ -127,7 +127,7 @@ def game_hash
   }
 end
 
-def get_players_stats
+def num_points_scored(player)
   game_hash.each do |key,value|
     binding.pry
   end
