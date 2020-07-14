@@ -128,7 +128,7 @@ def game_hash
 end
 
 def get_players_stats
-  game_hash[:players].each do |key,value|
+  game_hash.each do |key,value|
     binding.pry
   end
 end
