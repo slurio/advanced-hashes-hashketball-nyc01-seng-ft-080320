@@ -140,7 +140,9 @@ end
 def num_points_scored(player)
   score = 0
   stats = get_player_stats
-  binding.pry
+  stats.each do |index|
+    binding.pry
+  end
   score = stats.fetch(:points)
   binding.pry
 end
