@@ -127,31 +127,33 @@ def game_hash
   }
 end
 
-
-def num_points_scored(player)
-  points = 0
-  game_hash.each do |title, information|
-    information[:players].each do |players|
-      players.each do |key, value|
-        if value == player
-          points = players[:points]
-        end
-      end
+def get_player_stats
+  array = []
+  game_hash.each do |key,value|
+    value[:players].each do |inner_key, inner_value|
+      array.push(inner_key)
     end
   end
-  points
+  array
 end
 
+def num_points_scored(player)
+  score = 0
+  stats = get_player_stats
+  stats.each do |index|
+    if index[:player_name] == player
+      score = index.fetch(:points)
+    end
+  end
+  score
+end
 
 def shoe_size(player)
   shoe_size = 0
-  game_hash.each do |title, information|
-    information[:players].each do |players|
-      players.each do |key, value|
-        if value == player
-          shoe_size = players[:shoe]
-        end
-      end
+  stats = get_player_stats
+  stats.each do |index|
+    if index[:player_name] == player
+      shoe_size = index.fetch(:shoe)
     end
   end
   shoe_size
