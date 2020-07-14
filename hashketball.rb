@@ -142,7 +142,7 @@ def num_points_scored(player)
   stats = get_player_stats
   stats.each do |index|
     if index[:player_name] == player
-      score = stats.fetch(:points)
+      score = index.fetch(:points)
       binding.pry
     end
   end
