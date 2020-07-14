@@ -225,3 +225,10 @@ def big_shoe_rebounds
   end
   rebounds
 end
+
+def get_players
+  game_hash.each do |title, information|
+    information.each do |key, value|
+      binding.pry
+    end
+end
