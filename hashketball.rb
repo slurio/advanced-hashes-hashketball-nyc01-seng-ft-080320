@@ -150,13 +150,10 @@ end
 
 def shoe_size(player)
   shoe_size = 0
-  game_hash.each do |title, information|
-    information[:players].each do |players|
-      players.each do |key, value|
-        if value == player
-          shoe_size = players[:shoe]
-        end
-      end
+  stats = get_player_stats
+  stats.each do |index|
+    if index[:player_name] == player
+      shoe_size = index.fetch(:shoe)
     end
   end
   shoe_size
