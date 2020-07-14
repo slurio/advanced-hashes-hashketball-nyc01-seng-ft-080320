@@ -127,6 +127,12 @@ def game_hash
   }
 end
 
+def get_players_stats
+  game_hash[:players].each do |key,value|
+    binding.pry
+  end
+end
+
 
 def num_points_scored(player)
   points = 0
@@ -226,10 +232,4 @@ def big_shoe_rebounds
   rebounds
 end
 
-def get_players
-  game_hash.each do |title, information|
-    information.each do |key, value|
-      binding.pry
-    end
-  end
-end
+
