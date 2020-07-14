@@ -138,7 +138,10 @@ def get_player_stats
 end
 
 def num_points_scored(player)
-
+  score = 0
+  stats = get_player_stats
+  score = stats.fetch(:points)
+  binding.pry
 end
 
 def shoe_size(player)
