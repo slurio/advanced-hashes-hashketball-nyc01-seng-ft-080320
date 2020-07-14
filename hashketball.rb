@@ -127,7 +127,7 @@ def game_hash
   }
 end
 
-def num_points_scored(player)
+def get_player_stats
   array = []
   game_hash.each do |key,value|
     value[:players].each do |inner_key, inner_value|
@@ -135,11 +135,11 @@ def num_points_scored(player)
     end
   end
   array
-  binding.pry
 end
 
+def num_points_scored(player)
 
-
+end
 
 def shoe_size(player)
   shoe_size = 0
