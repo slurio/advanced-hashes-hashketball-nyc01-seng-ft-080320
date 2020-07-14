@@ -141,10 +141,11 @@ def num_points_scored(player)
   score = 0
   stats = get_player_stats
   stats.each do |index|
-    binding.pry
+    if index[:player_name] == player
+      score = stats.fetch(:points)
+      binding.pry
+    end
   end
-  score = stats.fetch(:points)
-  binding.pry
 end
 
 def shoe_size(player)
