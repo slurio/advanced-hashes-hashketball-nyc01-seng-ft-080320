@@ -231,4 +231,5 @@ def get_players
     information.each do |key, value|
       binding.pry
     end
+  end
 end
