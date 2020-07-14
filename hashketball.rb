@@ -132,10 +132,10 @@ def num_points_scored(player)
   game_hash.each do |key,value|
     value[:players].each do |inner_key, inner_value|
       array.push(inner_key)
-      binding.pry
     end
   end
   array
+  binding.pry
 end
 
 
